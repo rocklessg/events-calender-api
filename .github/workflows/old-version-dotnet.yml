@@ -1,18 +1,19 @@
-name: Deploy-event-calender-api
+name: Deploy
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches:
+      - master
+
 jobs:
-  build_calenderservice:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Deploy-event-calender-api
-      env:
-        HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      run: |
-        docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
-        heroku container:push web -a $HEROKU_APP_NAME
-        heroku container:release web -a $HEROKU_APP_NAME
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }} #Must be unique in Heroku
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+
+          usedocker: true
