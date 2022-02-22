@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setting event-calendar
       env:
-        HEROKU_API_KEY: aa477804-5fe5-467b-aa0c-d44673f98d13
-        APP_NAME: event-calender-api
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       run: |
         docker build -t calendarservice.api .
         docker tag calendarservice.api registry.heroku.com
