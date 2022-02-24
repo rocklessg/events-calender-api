@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CalendarService.Test.Helpers
 {
-    public class ModelsDataProvider
+    public static class ModelsDataProvider
     {
-        public static long eventId = 1;
+        public const long eventId = 1;
         public static BaseEntity GetBaseEntity()
         {
             return new()
