@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CalendarService.Infrastructure.Migrations
 {
     [DbContext(typeof(CalendarServiceDbContext))]
-    [Migration("20220222021927_InitialDb")]
+    [Migration("20220224010615_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
