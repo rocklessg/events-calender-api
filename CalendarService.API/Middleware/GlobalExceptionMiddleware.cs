@@ -47,9 +47,8 @@ namespace CalendarService.API.Middleware
             GenericAPIResponse response = new GenericAPIResponse()
             {
                 ResponseCode = RESPONSE_CODE.FAILURE,
-                ResponseDescription = FRIENDLY_MESSAGE.GENERAL_FAILURE,
+                ResponseDescription = exception.ToString()  //FRIENDLY_MESSAGE.GENERAL_FAILURE,
             };
-
             await context.Response.WriteAsync(JsonConvert.SerializeObject(response), Encoding.UTF8);
         }
     }

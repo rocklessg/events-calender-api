@@ -19,6 +19,7 @@ namespace CalendarService.Core.Models.DTOs
         public string Members { get; set; }
         [Required]
         public string Organizer { get; set; }
+
         public long Id { get; set; }
 
     }
