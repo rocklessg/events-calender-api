@@ -30,14 +30,14 @@ namespace CalendarService.API.Extensions
             services.AddDbContextPool<CalendarServiceDbContext>(opt =>
             {
                 string connectionStr;
-                if (env.IsProduction())
-                {
-                    connectionStr = GetHerokuConnectionString();
-                }
-                else
-                {
-                    connectionStr = config.GetConnectionString("Default");
-                }
+            if (env.IsProduction())
+            {
+                connectionStr = GetHerokuConnectionString();
+            }
+            else
+            {
+                connectionStr = config.GetConnectionString("Default");
+            }
                 opt.UseNpgsql(connectionStr);
             });
         }
