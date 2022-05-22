@@ -30,7 +30,7 @@ namespace CalendarService.API.Controllers
         ///
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> AddEventAsync([FromBody] EventDTO payload) 
+        public async Task<IActionResult> AddEventAsync([FromBody] EventDTO payload)
         {
             payload.Id = await _eventManagementService.AddNewEventAsync(payload);
             return CreatedAtAction(nameof(GetAllEventsByQueryStrings), new { id = payload.Id }, payload);

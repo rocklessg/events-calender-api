@@ -16,6 +16,6 @@ namespace CalendarService.Core.Entities
         public DateTime Time { get; set; }
         public string Location { get; set; }
         public string EventOrganizer { get; set; }
-        public ICollection<EventMembers> EventMembers { get; set; } 
+        public ICollection<EventMembers> EventMembers { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace CalendarService.Infrastructure.Services
 {
     public class CalendarServiceCommads : ICalendarServiceCommads
     {
-        private readonly CalendarServiceDbContext _calendarServiceDbContext; 
+        private readonly CalendarServiceDbContext _calendarServiceDbContext;
 
-        public CalendarServiceCommads(CalendarServiceDbContext doorAccessDbContext) 
+        public CalendarServiceCommads(CalendarServiceDbContext doorAccessDbContext)
         {
             _calendarServiceDbContext = doorAccessDbContext;
         }

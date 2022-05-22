@@ -9,7 +9,7 @@ namespace CalendarService.Core.Interfaces.Services.InfrastructureServices
 {
     public interface ICalendarServiceCommads
     {
-        Task<long> AddEventAsync(Event evnt); 
+        Task<long> AddEventAsync(Event evnt);
         Task AddEventMembersAsync(List<EventMembers> eventMembers);
         Task DeleteEventAsync(Event evnt);
         Task UpdateEventAsync(Event evnt);
