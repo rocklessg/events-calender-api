@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CalendarService.Core.Models.DTOs
 {
-    public class EventDTO 
+    public class EventDTO
     {
         [Required]
         public string Name { get; set; }

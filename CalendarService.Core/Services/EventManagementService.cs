@@ -17,14 +17,14 @@ namespace CalendarService.Core.Services
     {
         private readonly ICalendarServiceCommads _calendarServiceCommads;
         private readonly ICalendarServiceQueries _calendarServiceQueries;
-        public EventManagementService(ICalendarServiceCommads calendarServiceCommads, ICalendarServiceQueries calendarServiceQueries) 
+        public EventManagementService(ICalendarServiceCommads calendarServiceCommads, ICalendarServiceQueries calendarServiceQueries)
         {
             _calendarServiceCommads = calendarServiceCommads;
             _calendarServiceQueries = calendarServiceQueries;
         }
         public async Task<long> AddNewEventAsync(EventDTO newEvent)
         {
-            Event evnt = new Event();
+            Event evnt = new();
             long eventId;
             using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
@@ -101,7 +101,7 @@ namespace CalendarService.Core.Services
                 }
                 await _calendarServiceCommads.AddEventMembersAsync(eventMembers);
                 scope.Complete();
-            }    
+            }
             return true;
         }
         public async Task<IEnumerable<EventWithTimeString>> GetAllEventsAsync()
@@ -124,7 +124,7 @@ namespace CalendarService.Core.Services
             }
             return EventsList;
         }
-        public async Task<EventWithTimeString> GetEventByIdAsync(long eventId)   
+        public async Task<EventWithTimeString> GetEventByIdAsync(long eventId)
         {
             var evnt =  await _calendarServiceQueries.GetEventWithTrackingAsync(eventId);
             return evnt == null ? null : MapEventDetails(evnt);
@@ -144,14 +144,14 @@ namespace CalendarService.Core.Services
             var evnt = await _calendarServiceQueries.GetEventByNameWithNoTrackingAsync(name);
             return evnt == null ? null : MapEventDetails(evnt);
         }
-        public async Task<IEnumerable<EventWithTimeString>> GetAllEventsSortedByTimeAsync()  
+        public async Task<IEnumerable<EventWithTimeString>> GetAllEventsSortedByTimeAsync()
         {
             var allEvents = await _calendarServiceQueries.GetAllEventsWithNoTrackingAsync();
             allEvents = allEvents.OrderByDescending(x => x.Time).ToList();
             List<EventWithTimeString> EventsList = new();
             foreach (var evnt in allEvents)
             {
-                EventsList.Add(MapEventDetails(evnt));            
+                EventsList.Add(MapEventDetails(evnt));
             }
             return EventsList;
         }
