@@ -15,7 +15,7 @@ namespace CalendarService.API.Controllers
     [Route("[controller]")]
     [ApiController]
 
-    public class CalendarController : ControllerBase 
+    public class CalendarController : ControllerBase
     {
         private readonly IEventManagementService _eventManagementService;
         public CalendarController(IEventManagementService eventManagementService)
@@ -45,7 +45,7 @@ namespace CalendarService.API.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteEventAsync(long id) 
+        public async Task<IActionResult> DeleteEventAsync(long id)
         {
             var isDeleted = await _eventManagementService.DeleteEventAsync(id);
             if (!isDeleted)
@@ -66,7 +66,7 @@ namespace CalendarService.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> EditEventAsync(long id, [FromBody] EventDTO payload) 
+        public async Task<IActionResult> EditEventAsync(long id, [FromBody] EventDTO payload)
         {
             if (id != payload.Id)
             {
@@ -115,13 +115,13 @@ namespace CalendarService.API.Controllers
             else if(!string.IsNullOrEmpty(location))
             {
                 var allEvents = await _eventManagementService.GetAllEventsByLocationAsync(location);
-                return Ok(allEvents); 
+                return Ok(allEvents);
             }
             else
             {
                 var evnt = await _eventManagementService.GetEventByNameAsync(name);
                 return Ok(evnt);
-            }       
+            }
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace CalendarService.API.Controllers
         ///
         [HttpGet("sort")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetSortedEventsAsync() 
+        public async Task<IActionResult> GetSortedEventsAsync()
         {
             var allEvents = await _eventManagementService.GetAllEventsSortedByTimeAsync();
             return Ok(allEvents);

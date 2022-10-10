@@ -94,7 +94,6 @@ namespace CalendarService.API.Extensions
         public static void ResolveCoreServices(this IServiceCollection services)
         {
             services.AddScoped<IEventManagementService, EventManagementService>();
-            
         }
     }
 }

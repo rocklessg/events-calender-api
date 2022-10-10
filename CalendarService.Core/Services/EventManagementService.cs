@@ -17,14 +17,14 @@ namespace CalendarService.Core.Services
     {
         private readonly ICalendarServiceCommads _calendarServiceCommads;
         private readonly ICalendarServiceQueries _calendarServiceQueries;
-        public EventManagementService(ICalendarServiceCommads calendarServiceCommads, ICalendarServiceQueries calendarServiceQueries) 
+        public EventManagementService(ICalendarServiceCommads calendarServiceCommads, ICalendarServiceQueries calendarServiceQueries)
         {
             _calendarServiceCommads = calendarServiceCommads;
             _calendarServiceQueries = calendarServiceQueries;
         }
         public async Task<long> AddNewEventAsync(EventDTO newEvent)
         {
-            Event evnt = new Event();
+            Event evnt = new();
             long eventId;
             using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {

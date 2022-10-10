@@ -10,7 +10,7 @@ namespace CalendarService.Core.Entities
     {
         public string Name { get; set; }
         public long EventId { get; set; }
-        public Event Event { get; set; } 
+        public Event Event { get; set; }
 
     }
 }
