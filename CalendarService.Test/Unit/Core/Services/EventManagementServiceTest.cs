@@ -72,7 +72,7 @@ namespace CalendarService.Test.Unit.Core.Services
         }
 
         [Fact]
-        public async Task EditEventAsync_Should_Return_true_When_Event_Is_Edited() 
+        public async Task EditEventAsync_Should_Return_true_When_Event_Is_Edited()
         {
             //Arrange
             _mockICalendarServiceQueries.Setup(t => t.GetEventWithTrackingAsync(It.IsAny<long>())).ReturnsAsync(ModelsDataProvider.SetEvent());
@@ -83,10 +83,10 @@ namespace CalendarService.Test.Unit.Core.Services
         }
 
         [Fact]
-        public async Task GetAllEventsAsync_Should_Return_List_Of_Events() 
+        public async Task GetAllEventsAsync_Should_Return_List_Of_Events()
         {
             //Arrange
-            _mockICalendarServiceQueries.Setup(t => t.GetAllEventsWithNoTrackingAsync()).ReturnsAsync(new List<Event>() { ModelsDataProvider.SetEvent()});
+            _mockICalendarServiceQueries.Setup(t => t.GetAllEventsWithNoTrackingAsync()).ReturnsAsync(new List<Event>() { ModelsDataProvider.SetEvent() });
             //Act
             var result = await sut.GetAllEventsAsync();
             //Assert
@@ -155,7 +155,7 @@ namespace CalendarService.Test.Unit.Core.Services
         public async Task GetEventByNameAsync_Should_Return_Event()
         {
             //Arrange
-            Event evnt = null;
+            //Event evnt = null;
             _mockICalendarServiceQueries.Setup(t => t.GetEventByNameWithNoTrackingAsync(It.IsAny<string>())).ReturnsAsync(ModelsDataProvider.SetEvent());
             //Act
             var result = await sut.GetEventByNameAsync("test");

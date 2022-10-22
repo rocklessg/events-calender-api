@@ -32,10 +32,8 @@ namespace CalendarService.API.Extensions
                     }
                 });
 
-                
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                
             });
         }
 
