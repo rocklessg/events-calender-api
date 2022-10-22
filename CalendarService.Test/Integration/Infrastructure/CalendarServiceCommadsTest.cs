@@ -16,13 +16,13 @@ namespace CalendarService.Test.Integration.Infrastructure
     {
         CalendarServiceDbContext dbContext = DbContextProvider.InitContextWithInMemoryDbSupport();
         ICalendarServiceCommads sut;
-        public CalendarServiceCommadsTest() 
+        public CalendarServiceCommadsTest()
         {
 
         }
 
         [Fact]
-        public async Task AddEventAsync_Should_Add_New_Event_To_DB() 
+        public async Task AddEventAsync_Should_Add_New_Event_To_DB()
         {
             //Arrange
             sut = new CalendarServiceCommads(dbContext);
@@ -41,7 +41,7 @@ namespace CalendarService.Test.Integration.Infrastructure
         public async Task AddEventMembersAsync_Should_Add_New_Event_Members_To_DB()
         {
             //Arrange
-            sut = new CalendarServiceCommads(dbContext); 
+            sut = new CalendarServiceCommads(dbContext);
             List<EventMembers> newMembers = new List<EventMembers>
             {
                 ModelsDataProvider.SetEventMembers()
@@ -63,7 +63,7 @@ namespace CalendarService.Test.Integration.Infrastructure
             sut = new CalendarServiceCommads(dbContext);
             var newEvent = ModelsDataProvider.SetEvent();
 
-            //Act         
+            //Act
             await sut.AddEventAsync(newEvent);
             await sut.DeleteEventAsync(newEvent);
             var result = dbContext.Event.Where(o => o.Id == ModelsDataProvider.SetEvent().Id).FirstOrDefault();
@@ -73,7 +73,7 @@ namespace CalendarService.Test.Integration.Infrastructure
         }
 
         [Fact]
-        public async Task UpdateEventAsync_Should_Update_Event_In_DB() 
+        public async Task UpdateEventAsync_Should_Update_Event_In_DB()
         {
             //Arrange
             sut = new CalendarServiceCommads(dbContext);
@@ -92,7 +92,7 @@ namespace CalendarService.Test.Integration.Infrastructure
         }
 
         [Fact]
-        public async Task DeleteEventMembersAsync_Should_Remove_Event_Members_From_DB() 
+        public async Task DeleteEventMembersAsync_Should_Remove_Event_Members_From_DB()
         {
             //Arrange
             sut = new CalendarServiceCommads(dbContext);

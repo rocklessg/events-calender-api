@@ -19,13 +19,13 @@ namespace CalendarService.Test.Unit.API
         CalendarController sut;
         Mock<IEventManagementService> mockIEventManagementService = new Mock<IEventManagementService>();
 
-        public CalendarControllerTest() 
+        public CalendarControllerTest()
         {
             sut = new CalendarController(mockIEventManagementService.Object);
         }
 
         [Fact]
-        public async Task AddEventAsync_Should_Return_201_After_Event_Created() 
+        public async Task AddEventAsync_Should_Return_201_After_Event_Created()
         {
             //Arrange
             mockIEventManagementService.Setup(t => t.AddNewEventAsync(ModelsDataProvider.SetEventDTO())).ReturnsAsync(ModelsDataProvider.eventId);
@@ -38,13 +38,13 @@ namespace CalendarService.Test.Unit.API
         }
 
         [Fact]
-        public async Task DeleteEventAsync_Should_Return_404_If_Event_Not_Found() 
+        public async Task DeleteEventAsync_Should_Return_404_If_Event_Not_Found()
         {
             //Arrange
             mockIEventManagementService.Setup(t => t.DeleteEventAsync(ModelsDataProvider.eventId)).ReturnsAsync(false);
 
             //Act
-            var result = await sut.DeleteEventAsync(ModelsDataProvider.eventId); 
+            var result = await sut.DeleteEventAsync(ModelsDataProvider.eventId);
 
             //Assert
             Assert.IsType<NotFoundResult>(result);

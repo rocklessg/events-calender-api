@@ -14,7 +14,7 @@ namespace CalendarService.Infrastructure.Services
     {
         private readonly CalendarServiceDbContext _calendarServiceDbContext;
 
-        public CalendarServiceQueries(CalendarServiceDbContext doorAccessDbContext) 
+        public CalendarServiceQueries(CalendarServiceDbContext doorAccessDbContext)
         {
             _calendarServiceDbContext = doorAccessDbContext;
         }
