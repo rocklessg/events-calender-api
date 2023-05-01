@@ -107,7 +107,7 @@ namespace CalendarService.Core.Services
         public async Task<IEnumerable<EventWithTimeString>> GetAllEventsAsync()
         {
             var allEvents = await _calendarServiceQueries.GetAllEventsWithNoTrackingAsync();
-            List<EventWithTimeString> EventsList = new List<EventWithTimeString>();
+            List<EventWithTimeString> EventsList = new();
             foreach(var evnt in allEvents)
             {
                 EventsList.Add(MapEventDetails(evnt));
@@ -117,7 +117,7 @@ namespace CalendarService.Core.Services
         public async Task<IEnumerable<EventWithTimeString>> GetAllEventsByOrganizerAsync(string eventOrganizer)
         {
             var allEvents = await _calendarServiceQueries.GetAllEventsByOrganizerWithNoTrackingAsync(eventOrganizer);
-            List<EventWithTimeString> EventsList = new List<EventWithTimeString>();
+            List<EventWithTimeString> EventsList = new();
             foreach (var evnt in allEvents)
             {
                 EventsList.Add(MapEventDetails(evnt));
@@ -132,7 +132,7 @@ namespace CalendarService.Core.Services
         public async Task<IEnumerable<EventWithTimeString>> GetAllEventsByLocationAsync(string location)
         {
             var allEvents = await _calendarServiceQueries.GetAllEventsByLocationWithNoTrackingAsync(location);
-            List<EventWithTimeString> EventsList = new List<EventWithTimeString>();
+            List<EventWithTimeString> EventsList = new();
             foreach (var evnt in allEvents)
             {
                 EventsList.Add(MapEventDetails(evnt));
