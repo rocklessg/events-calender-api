@@ -13,8 +13,8 @@ namespace CalendarService.Test.Unit.Core.Models
     public class EventTest
     {
         [Fact]
-        public void Event_Should_Return_Set_Values() 
-        { 
+        public void Event_Should_Return_Set_Values()
+        {
             var result = ModelsDataProvider.SetEvent();
             result.Id.ShouldBe(1);
             result.DateCreated.ShouldBe(DateTime.Today);

@@ -15,7 +15,7 @@ namespace CalendarService.API.Extensions
             // Get the Database URL from the ENV variables in Heroku
             string connectionURL = Environment.GetEnvironmentVariable("DATABASE_URL");
 
-            // parse the connection string in to Universal Resource Identifier (URI)
+            // parse the connection string into Universal Resource Identifier (URI)
             var databaseURI = new Uri(connectionURL);
             string database = databaseURI.LocalPath.TrimStart('/');
             string[] userInfo = databaseURI.UserInfo.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
